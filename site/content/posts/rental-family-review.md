@@ -6,6 +6,8 @@ tags: [movie, review]
 featured: true
 ---
 
+![Rental Family](https://posters.movieposterdb.com/25_09/2025/14142060/l_rental-family-movie-poster_58e0e618.jpeg)
+
 ## The Performance: A Masterclass in Subtlety
 
 Brendan Fraser’s portrayal is nothing short of exemplary. He carries a quiet gravity, a man navigating the bizarre landscape of "rented" intimacy with a performance that is both nuanced and devastating. He isn’t alone in this brilliance; the chemistry with his co-stars creates a friction that feels uncomfortably real.
