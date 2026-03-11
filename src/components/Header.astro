@@ -8,44 +8,41 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { name: 'Posts', href: '/posts' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Appearances', href: '/appearances' },
-  { name: 'About', href: '/about' },
+  { name: 'Posts', href: `${SITE.base === '/' ? '' : SITE.base}/posts` },
+  { name: 'About', href: `${SITE.base === '/' ? '' : SITE.base}/about` },
 ];
 ---
 
 <header
-  class="sticky top-0 z-50 glass-panel flex flex-col lg:flex-row items-center justify-between py-4 sm:py-5 gap-4 border-b border-white/5 transition-all duration-300"
+  class="sticky top-0 z-50 bg-background flex flex-col sm:flex-row items-center justify-between py-3 px-0 border-b-[3px] border-foreground transition-all duration-300"
 >
-  <div class="flex items-center justify-between w-full lg:w-auto">
+  <div class="flex items-center justify-between w-full sm:w-auto">
     <a
-      href="/"
-      class="text-xl sm:text-2xl font-black tracking-normal text-foreground transition-all no-underline hover:text-primary whitespace-nowrap"
+      href={SITE.base === '/' ? '/' : SITE.base}
+      class="text-2xl sm:text-3xl font-black font-serif uppercase tracking-tighter text-foreground transition-all no-underline hover:text-primary whitespace-nowrap decoration-2 underline-offset-4"
     >
-      {SITE.title}
+      0x1337
     </a>
-    <div class="flex items-center gap-2 lg:hidden">
+    <div class="flex items-center gap-2 sm:hidden">
       <Search client:idle />
     </div>
   </div>
 
-  <nav class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full lg:w-auto">
-    <div class="flex items-center justify-center flex-wrap gap-x-2 gap-y-2 sm:gap-4">
+  <nav class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto mt-4 sm:mt-0">
+    <div class="flex items-center justify-center flex-wrap gap-4">
       {
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-2 py-1 rounded-md text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary hover:text-glow transition-all shrink-0 relative group"
+            class="text-xs font-bold font-sans uppercase tracking-[0.15em] text-foreground hover:text-primary hover:underline underline-offset-4 decoration-2 transition-all shrink-0"
           >
-            <span class="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform rounded-md" />
-            <span class="relative z-10">{link.name}</span>
+            {link.name}
           </a>
         ))
       }
     </div>
-    <div class="hidden lg:block h-4 w-px bg-border"></div>
-    <div class="hidden lg:flex items-center gap-4">
+    <div class="hidden sm:block h-5 w-px bg-foreground/30"></div>
+    <div class="hidden sm:flex items-center gap-4">
       <Search client:idle />
     </div>
   </nav>

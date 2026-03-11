@@ -1,6 +1,6 @@
-# I'm {author}, wanderer of stories and ideas.
+# WELCOME TO 0xDISPATCH, {author}.
 
-Exploring the worlds of cinema, literature, video games, and technology.  
-Sharing honest thoughts, foolish opinions, and the occasional insight.
+INITIALIZING THE 0x1337 INITIATIVE.
+Transmissions from the grid. Tactical documentation, security research, and advanced operations.
 
-Join me as I document my journey through the stories and ideas that shape our modern existence.
+Stay connected. Stay anonymous. The grid is watching.

@@ -51,25 +51,23 @@ export interface SiteConfig {
 }
 
 export const SITE: SiteConfig = {
-  author: 'A Foolish Man',
-  desc: "Musings on movies, books, video games, technology, and life's peculiar adventures.",
-  title: "A Foolish Man's musings",
+  author: '0x1337',
+  desc: '0xDispatch - The 0x1337 Initiative Newsletter.',
+  title: '0xDispatch',
   ogImage: 'og.png',
   lang: 'en-US',
-  base: '/',
-  website: 'https://afoolishman.com',
+  base: '/newsletter',
+  website: 'https://0x1337github.io',
   social: {
-    github: 'https://github.com/The-Coder-Kishor/',
-    linkedin: 'https://www.linkedin.com/in/afoolishman/',
-    instagram: 'https://www.instagram.com/a.foolishman',
-    email: 'mailto:info@afoolishman.com',
+    github: 'https://github.com/0x1337club',
+    linkedin: 'https://www.linkedin.com/company/0x1337/',
+    instagram: 'https://www.instagram.com/0x1337iiith',
+    email: 'mailto:hacking.club@students.iiit.ac.in',
   },
   googleAnalyticsId: '', // Example: 'G-XXXXXXXXXX'
-  homeHeroDescription:
-    'A collection of thoughts on movies, books, video games, and technology. Sometimes insightful, often foolish, always honest. Join me as I explore the stories, games, and ideas that shape our world.',
-  blogDescription:
-    'Reviews, reflections, and rambling thoughts on movies, books, games, tech, and everything in between.',
-  projectsDescription: 'Personal projects and creative experiments worth sharing.',
+  homeHeroDescription: 'Welcome to 0xDispatch. A channel for the 0x1337 Initiative.',
+  blogDescription: 'Transmissions from the grid.',
+  projectsDescription: 'Active operations and tools.',
 
   // Homepage post counts
   featuredPostsCount: 3,
@@ -77,8 +75,8 @@ export const SITE: SiteConfig = {
 
   // Homepage projects
   homeProjects: {
-    enabled: true,
-    count: 4,
+    enabled: false,
+    count: 0,
   },
 
   // CTA (Call-to-Action) block for blog posts
@@ -96,14 +94,14 @@ export const SITE: SiteConfig = {
   // Get your configuration from https://giscus.app
   comments: {
     enabled: true, // Set to true after filling in the IDs below
-    repo: 'The-Coder-Kishor/the-coder-kishor.github.io', // Your GitHub repository
-    repoId: 'R_kgDOLKIMBw', // Get from https://giscus.app - enter repo above and copy the value
+    repo: '0x1337iiit/newsletter', // Your GitHub repository
+    repoId: 'R_kgDORjtw2g', // Get from https://giscus.app - enter repo above and copy the value
     category: 'General', // GitHub Discussions category name
-    categoryId: 'DIC_kwDOLKIMB84C230F', // Get from https://giscus.app - select category and copy the value
+    categoryId: 'DIC_kwDORjtw2s4C4ItM', // Get from https://giscus.app - select category and copy the value
     mapping: 'pathname',
     reactionsEnabled: true,
     emitMetadata: false,
-    inputPosition: 'bottom',
+    inputPosition: 'top',
     theme: 'preferred_color_scheme', // Automatically matches your site theme
     lang: 'en',
   },

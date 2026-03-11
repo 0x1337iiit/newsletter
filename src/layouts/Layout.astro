@@ -8,10 +8,7 @@ import { ClientRouter } from 'astro:transitions';
 import JsonLd from '@/components/JsonLd.astro';
 import { getWebSiteSchema, getOrganizationSchema, getPersonSchema } from '@/lib/schemas';
 
-// Preload fonts to break critical request chains
-import outfitFont400 from '@fontsource/outfit/files/outfit-latin-400-normal.woff2?url';
-import outfitFont700 from '@fontsource/outfit/files/outfit-latin-700-normal.woff2?url';
-import interFontVar from '@fontsource-variable/inter/files/inter-latin-standard-normal.woff2?url';
+// Removed default fonts mapping
 
 interface Props {
   title?: string;
@@ -61,16 +58,23 @@ const gaScript = `
 <html lang={pageLang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href={`${SITE.base === '/' ? '' : SITE.base}/favicon.png`} />
+    <link
+      rel="apple-touch-icon"
+      href={`${SITE.base === '/' ? '' : SITE.base}/apple-touch-icon.png`}
+    />
+    <link rel="manifest" href={`${SITE.base === '/' ? '' : SITE.base}/site.webmanifest`} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preload" href={outfitFont400} as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href={outfitFont700} as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href={interFontVar} as="font" type="font/woff2" crossorigin="anonymous" />
 
-    {analyticsId && <link rel="preconnect" href="https://www.googletagmanager.com" />}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
     <title>{pageTitle}</title>
@@ -87,12 +91,14 @@ const gaScript = `
       rel="alternate"
       type="application/rss+xml"
       title={`${SITE.title} RSS Feed`}
-      href="/rss.xml"
+      href={`${SITE.base === '/' ? '' : SITE.base}/rss.xml`}
     />
 
     <!-- Theme Initialization -->
     <script is:inline>
       (function () {
+        // Enforce dark mechanism in DOM for components that might rely on it
+        document.documentElement.classList.remove('light');
         document.documentElement.classList.add('dark');
       })();
     </script>
@@ -122,7 +128,7 @@ const gaScript = `
     <base href={SITE.base} />
   </head>
   <body
-    class="bg-background text-foreground min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-primary-foreground"
+    class="bg-background text-foreground min-h-screen relative overflow-x-hidden selection:bg-primary/20 selection:text-primary"
   >
     {
       isGTM && (
@@ -136,9 +142,9 @@ const gaScript = `
         </noscript>
       )
     }
-    <div class="max-w-5xl 3xl:max-w-7xl mx-auto container-padding">
+    <div class="w-full mx-auto container-padding">
       <Header />
-      <main class="py-12 sm:py-16 lg:py-24">
+      <main class="py-6 sm:py-8 lg:py-12">
         <slot />
       </main>
       <Footer />

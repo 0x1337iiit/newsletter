@@ -1,72 +1,44 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-/* Futuristic / Retromodern Typography */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: url('@fontsource/outfit/files/outfit-latin-400-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src: url('@fontsource/outfit/files/outfit-latin-700-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('@fontsource-variable/inter/files/inter-latin-standard-normal.woff2') format('woff2');
-}
+/* Retromodern Newspaper Typography (Dark Mode) */
 
 @theme {
-  /* Retromodern Palette - High Contrast, Clean, Technical */
+  /* Newspaper Palette - Dark Paper & Light Ink */
+  --color-background: #111111; /* Dark charcoal */
+  --color-foreground: #d4d4d4; /* Off-white ink */
 
-  --color-background: #080808;
-  /* Deep Matte Black */
-  --color-foreground: #e5e5e5;
-  /* Soft White */
-
-  --color-card: #111111;
-  --color-card-foreground: #ffffff;
+  --color-card: #1a1a1a; /* Slightly lighter card */
+  --color-card-foreground: #d4d4d4;
 
   --color-popover: #111111;
-  --color-popover-foreground: #ffffff;
+  --color-popover-foreground: #d4d4d4;
 
-  --color-primary: #00f0ff;
-  /* Sharp Cyan */
-  --color-primary-foreground: #000000;
+  --color-primary: #ef4444; /* Bright red accent */
+  --color-primary-foreground: #ffffff;
 
-  --color-secondary: #ffffff;
-  /* Stark White for accents */
-  --color-secondary-foreground: #000000;
+  --color-secondary: #262626; /* Dark secondary */
+  --color-secondary-foreground: #d4d4d4;
 
-  --color-muted: #222222;
-  --color-muted-foreground: #888888;
+  --color-muted: #262626;
+  --color-muted-foreground: #a3a3a3;
 
   --color-accent: #1a1a1a;
-  --color-accent-foreground: #00f0ff;
+  --color-accent-foreground: #d4d4d4;
 
-  --color-destructive: #ff3333;
+  --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
 
-  --color-border: #333333;
-  /* Dark Grey Borders */
-  --color-input: #222222;
-  --color-ring: #00f0ff;
+  --color-border: #404040; /* Gray borders */
+  --color-input: #1a1a1a;
+  --color-ring: #ef4444;
 
   /* Constants */
-  --font-sans: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --radius-lg: 0px;
-  /* Sharp corners for retro feel */
-  --radius-md: 0px;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Merriweather', 'Georgia', 'Garamond', serif;
+
+  --radius-lg: 2px;
+  --radius-md: 2px;
   --radius-sm: 0px;
 
   /* Responsive Scaling */
@@ -75,32 +47,31 @@
 }
 
 @layer base {
-  /* Force dark mode */
-  :root {
-    --color-background: #080808;
-    --color-foreground: #e5e5e5;
-    --color-card: #111111;
-    --color-card-foreground: #ffffff;
+  /* Enforce dark mode colors */
+  :root,
+  .dark {
+    --color-background: #111111;
+    --color-foreground: #d4d4d4;
+    --color-card: #1a1a1a;
+    --color-card-foreground: #d4d4d4;
     --color-popover: #111111;
-    --color-popover-foreground: #ffffff;
-    --color-primary: #00f0ff;
-    --color-primary-foreground: #000000;
-    --color-secondary: #ffffff;
-    --color-secondary-foreground: #000000;
-    --color-muted: #222222;
-    --color-muted-foreground: #888888;
+    --color-popover-foreground: #d4d4d4;
+    --color-primary: #ef4444;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #262626;
+    --color-secondary-foreground: #d4d4d4;
+    --color-muted: #262626;
+    --color-muted-foreground: #a3a3a3;
     --color-accent: #1a1a1a;
-    --color-accent-foreground: #00f0ff;
-    --color-destructive: #ef4444;
-    --color-destructive-foreground: #ffffff;
-    --color-border: #333333;
-    --color-input: #222222;
-    --color-ring: #00f0ff;
+    --color-accent-foreground: #d4d4d4;
+    --color-border: #404040;
+    --color-input: #1a1a1a;
+    --color-ring: #ef4444;
+    color-scheme: dark;
   }
 
   html {
     font-size: clamp(16px, 0.5vw + 14px, 18px);
-    /* Slightly smaller base for cleaner look */
     scroll-behavior: smooth;
   }
 
@@ -110,12 +81,9 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    line-height: 1.6;
-    /* Subtle grid background */
-    background-size: 40px 40px;
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    line-height: 1.7;
+    /* Subtle paper texture (light dots on dark background) */
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
   }
 
@@ -126,35 +94,38 @@
   h5,
   h6 {
     @apply tracking-tight font-bold;
-    line-height: 1.1;
+    font-family: var(--font-serif);
+    line-height: 1.15;
     color: var(--color-foreground);
-    /* Solid color, no gradients */
   }
 
   a {
     transition:
       color 0.2s ease,
-      border-bottom 0.2s ease;
-    text-decoration: none;
-    color: inherit;
+      text-decoration-color 0.2s ease;
+    text-decoration: underline;
+    text-decoration-color: var(--color-border);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    color: var(--color-foreground);
   }
 
   a:hover {
     color: var(--color-primary);
+    text-decoration-color: var(--color-primary);
   }
 
   *::selection {
-    background-color: var(--color-primary);
-    color: var(--color-primary-foreground);
+    background-color: #ef444440; /* transparent red selection */
+    color: var(--color-primary);
   }
 }
 
 @layer utilities {
   .glass-panel {
-    background: rgba(10, 10, 10, 0.85);
-    /* Darker, less transparent */
+    background: rgba(17, 17, 17, 0.95);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 2px solid var(--color-foreground);
   }
 
   .container-padding {
@@ -168,33 +139,48 @@
   --tw-prose-headings: var(--color-foreground);
   --tw-prose-links: var(--color-primary);
   --tw-prose-bold: var(--color-foreground);
-  --tw-prose-counters: var(--color-primary);
-  --tw-prose-bullets: var(--color-border);
+  --tw-prose-counters: var(--color-foreground);
+  --tw-prose-bullets: var(--color-foreground);
   --tw-prose-hr: var(--color-border);
-  --tw-prose-quotes: var(--color-foreground);
+  --tw-prose-quotes: var(--color-muted-foreground);
   --tw-prose-quote-borders: var(--color-border);
   --tw-prose-captions: var(--color-muted-foreground);
   --tw-prose-code: var(--color-primary);
-  --tw-prose-pre-bg: #111111;
-  font-size: 1.05rem;
+  --tw-prose-pre-bg: #1a1a1a;
+  font-size: 1.125rem;
 }
 
 .prose h1,
 .prose h2,
 .prose h3 {
   color: var(--color-foreground);
-  font-weight: 800;
+  font-weight: 700;
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.prose h1 {
+  font-size: 2.5em;
+  border-bottom: 3px double var(--color-foreground);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.8em;
+}
+
+.prose h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.2em;
 }
 
 .prose code {
-  @apply rounded-none px-1 py-0.5 font-medium font-mono border whitespace-pre-wrap;
-  background-color: var(--color-muted);
+  @apply rounded-md px-1 py-0.5 font-mono border whitespace-pre-wrap;
+  background-color: var(--color-input);
   border-color: var(--color-border);
   color: var(--color-primary) !important;
+  font-size: 0.9em;
 }
 
 .prose pre {
   border: 1px solid var(--color-border);
-  border-radius: 0;
-  /* Sharp edges */
+  border-radius: 4px;
 }
