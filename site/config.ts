@@ -52,7 +52,7 @@ export interface SiteConfig {
 
 export const SITE: SiteConfig = {
   author: '0x1337',
-  desc: '0xDispatch - The 0x1337 Initiative Newsletter.',
+  desc: '0xDispatch - The 0x1337 Newsletter',
   title: '0xDispatch',
   ogImage: 'og.png',
   lang: 'en-US',
@@ -65,7 +65,7 @@ export const SITE: SiteConfig = {
     email: 'mailto:hacking.club@students.iiit.ac.in',
   },
   googleAnalyticsId: '', // Example: 'G-XXXXXXXXXX'
-  homeHeroDescription: 'Welcome to 0xDispatch. A channel for the 0x1337 Initiative.',
+  homeHeroDescription: 'Welcome to 0xDispatch.',
   blogDescription: 'Transmissions from the grid.',
   projectsDescription: 'Active operations and tools.',
 
